@@ -1,0 +1,18 @@
+name: Test PHP Application
+on:
+ push:
+   branches:
+     - main
+jobs:
+ build:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Checkout repository
+     uses: actions/checkout@v3
+   - name: Set up PHP
+     uses: shivammathur/setup-php@v2
+     with:
+       php-version: '8.1' # Укажите нужную версию PHP
+       extensions: mbstring, intl
+   - name: Run PHP Script
+     run: php your-script.php
